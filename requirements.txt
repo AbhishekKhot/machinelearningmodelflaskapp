@@ -1,0 +1,17 @@
+click
+Flask
+importlib-metadata
+itsdangerous
+Jinja2
+joblib
+MarkupSafe
+numpy
+pip
+scikit-learn
+scipy
+setuptools
+sklearn
+threadpoolctl
+Werkzeug
+wheel
+zipp
