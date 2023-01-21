@@ -15,3 +15,4 @@ threadpoolctl
 Werkzeug
 wheel
 zipp
+gunicorn
