@@ -5,6 +5,10 @@ import pickle
 import os
 import joblib
 
+scaler = pickle.load(open('scaler.pkl','rb'))
+# dt = joblib.load(open('dt.sav'))
+dt = joblib.load('dt.sav', mmap_mode=None)
+
 app = Flask(__name__)
 
 
@@ -29,17 +33,17 @@ def result():
     x = np.array([gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type,
                   avg_glucose_level, bmi, smoking_status]).reshape(1, -1)
 
-    scaler_path = os.path.join('/Users/abhishekkhot/PycharmProjects/flaskapi',
-                               'models/scaler.pkl')
-    scaler = None
-    with open(scaler_path, 'rb') as scaler_file:
-        scaler = pickle.load(scaler_file)
+    # scaler_path = os.path.join('/Users/abhishekkhot/PycharmProjects/flaskapi',
+    #                            'models/scaler.pkl')
+    # scaler = None
+    # # with open(scaler_path, 'rb') as scaler_file:
+    # scaler = pickle.load(scaler_file)
 
     x = scaler.transform(x)
 
-    model_path = os.path.join('/Users/abhishekkhot/PycharmProjects/flaskapi',
-                              'models/dt.sav')
-    dt = joblib.load(model_path)
+    # model_path = os.path.join('/Users/abhishekkhot/PycharmProjects/flaskapi',
+    #                           'dt.sav')
+    # dt = joblib.load(model_path)
 
     Y_pred = dt.predict(x)
 
